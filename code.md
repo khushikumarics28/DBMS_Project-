@@ -23,6 +23,7 @@ CREATE TABLE MESS (
     Type VARCHAR(30),
     Charge DECIMAL(10,2),
     Timing VARCHAR(30)
+    mess_manager VARCHAR(50)
 ) ENGINE=InnoDB;
 ```
 
@@ -88,4 +89,5 @@ CREATE TABLE PAYMENT_TRANSACTION (
         ON DELETE CASCADE
         ON UPDATE CASCADE
 ) ENGINE=InnoDB;
+
 ```
