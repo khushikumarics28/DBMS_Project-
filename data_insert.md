@@ -1,4 +1,4 @@
-### ROOM 
+# ROOM 
 
 ```sql
 INSERT INTO ROOM VALUES
@@ -13,7 +13,7 @@ INSERT INTO ROOM VALUES
 (303,'Triple',3,3,'C'),
 (304,'Double',2,3,'C');
 ```
-# output
+##### output
 ```
 SELECT * FROM ROOM;
 +---------+-----------+----------+-------+-------+
@@ -32,7 +32,7 @@ SELECT * FROM ROOM;
 +---------+-----------+----------+-------+-------+
 10 rows in set (0.001 sec)
 ```
-###  STUDENTS
+# STUDENTS
 
 ```
 INSERT INTO STUDENTS VALUES
@@ -47,7 +47,7 @@ INSERT INTO STUDENTS VALUES
 (9,'Rohit','rohit@gmail.com','9876543218','2024-01-18',303),
 (10,'Simran','simran@gmail.com','9876543219','2024-01-19',304);
 ```
-# output
+##### output
 ```
 SELECT * FROM STUDENTS;
 +------------+--------+------------------+------------+------------+---------+
@@ -66,7 +66,7 @@ SELECT * FROM STUDENTS;
 +------------+--------+------------------+------------+------------+---------+
 10 rows in set (0.001 sec)
 ```
-###  HOSTEL_REPRESENTATIVE
+# HOSTEL_REPRESENTATIVE
 ```
 INSERT INTO HOSTEL_REPRESENTATIVE VALUES
 (1,'Raj','raj@gmail.com','9999991111','Warden1'),
@@ -81,7 +81,7 @@ INSERT INTO HOSTEL_REPRESENTATIVE VALUES
 (10,'Vivek','vivek@gmail.com','9999991120','Warden10');
 ```
 
-# output
+##### output
 ```
 SELECT * FROM HOSTEL_REPRESENTATIVE;
 +--------+--------+------------------+------------+----------+
@@ -101,7 +101,7 @@ SELECT * FROM HOSTEL_REPRESENTATIVE;
 10 rows in set (0.001 sec)
 ```
 
-### BILLS
+# BILLS
 
 ```sql
 INSERT INTO BILLS VALUES
@@ -116,7 +116,7 @@ INSERT INTO BILLS VALUES
 (9,'2024-02-09',5400,30,9),
 (10,'2024-02-10',5900,30,10);
 ```
-# output
+##### output
 ```
 SELECT * FROM BILLS;
 +---------+------------+--------+----------+--------+
@@ -135,7 +135,7 @@ SELECT * FROM BILLS;
 +---------+------------+--------+----------+--------+
 10 rows in set (0.000 sec)
 ```
-### TRANSACTIO
+# TRANSACTIO
 
 ```sql
 INSERT INTO TRANSACTION VALUES
@@ -151,7 +151,7 @@ INSERT INTO TRANSACTION VALUES
 (10,5900,'UPI','2024-02-11',10);
 ```
 
-# output
+##### output
 ```
 SELECT * FROM TRANSACTION;
 +----------+--------+----------------+------------+---------+
