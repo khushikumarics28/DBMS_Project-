@@ -33,6 +33,8 @@ SELECT * FROM ROOM;
 10 rows in set (0.001 sec)
 ```
 ###  STUDENTS
+
+```
 INSERT INTO STUDENTS VALUES
 (1,'Aman','aman@gmail.com','9876543210','2024-01-10',101),
 (2,'Riya','riya@gmail.com','9876543211','2024-01-11',102),
@@ -44,8 +46,9 @@ INSERT INTO STUDENTS VALUES
 (8,'Anjali','anjali@gmail.com','9876543217','2024-01-17',302),
 (9,'Rohit','rohit@gmail.com','9876543218','2024-01-18',303),
 (10,'Simran','simran@gmail.com','9876543219','2024-01-19',304);
-
+```
 # output
+```
 SELECT * FROM STUDENTS;
 +------------+--------+------------------+------------+------------+---------+
 | student_id | name   | email_id         | phone      | admit_date | room_no |
@@ -62,8 +65,9 @@ SELECT * FROM STUDENTS;
 |         10 | Simran | simran@gmail.com | 9876543219 | 2024-01-19 |     304 |
 +------------+--------+------------------+------------+------------+---------+
 10 rows in set (0.001 sec)
-
+```
 ###  HOSTEL_REPRESENTATIVE
+```
 INSERT INTO HOSTEL_REPRESENTATIVE VALUES
 (1,'Raj','raj@gmail.com','9999991111','Warden1'),
 (2,'Amit','amit@gmail.com','9999991112','Warden2'),
@@ -75,9 +79,10 @@ INSERT INTO HOSTEL_REPRESENTATIVE VALUES
 (8,'Kunal','kunal@gmail.com','9999991118','Warden8'),
 (9,'Arjun','arjun@gmail.com','9999991119','Warden9'),
 (10,'Vivek','vivek@gmail.com','9999991120','Warden10');
-Query OK, 10 rows affected (0.005 sec)
+```
 
 # output
+```
 SELECT * FROM HOSTEL_REPRESENTATIVE;
 +--------+--------+------------------+------------+----------+
 | rep_id | name   | email_id         | phone      | warden   |
@@ -94,6 +99,7 @@ SELECT * FROM HOSTEL_REPRESENTATIVE;
 |     10 | Vivek  | vivek@gmail.com  | 9999991120 | Warden10 |
 +--------+--------+------------------+------------+----------+
 10 rows in set (0.001 sec)
+```
 
 ### BILLS
 
@@ -111,6 +117,7 @@ INSERT INTO BILLS VALUES
 (10,'2024-02-10',5900,30,10);
 ```
 # output
+```
 SELECT * FROM BILLS;
 +---------+------------+--------+----------+--------+
 | bill_id | date       | amount | duration | rep_id |
@@ -127,7 +134,7 @@ SELECT * FROM BILLS;
 |      10 | 2024-02-10 |   5900 |       30 |     10 |
 +---------+------------+--------+----------+--------+
 10 rows in set (0.000 sec)
-
+```
 ### TRANSACTIO
 
 ```sql
@@ -145,6 +152,7 @@ INSERT INTO TRANSACTION VALUES
 ```
 
 # output
+```
 SELECT * FROM TRANSACTION;
 +----------+--------+----------------+------------+---------+
 | trans_id | amount | payment_method | date       | bill_id |
@@ -161,3 +169,4 @@ SELECT * FROM TRANSACTION;
 |       10 |   5900 | UPI            | 2024-02-11 |      10 |
 +----------+--------+----------------+------------+---------+
 10 rows in set (0.001 sec)
+```
