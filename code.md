@@ -1,6 +1,12 @@
+### CREATE DATABASE
+
+```sql
 CREATE DATABASE hostel_db;
 USE hostel_db;
+```
+### ROOM
 
+```sql
 CREATE TABLE ROOM (
     room_no INT PRIMARY KEY,
     room_type VARCHAR(20),
@@ -8,7 +14,10 @@ CREATE TABLE ROOM (
     floor INT,
     block VARCHAR(10)
 );
+```
+###  STUDENTS
 
+```sql
 CREATE TABLE STUDENTS (
     student_id INT PRIMARY KEY,
     name VARCHAR(50),
@@ -18,7 +27,10 @@ CREATE TABLE STUDENTS (
     room_no INT,
     FOREIGN KEY (room_no) REFERENCES ROOM(room_no)
 );
+```
+### HOSTEL_REPRESENTATIVE
 
+```sql
 CREATE TABLE HOSTEL_REPRESENTATIVE (
     rep_id INT PRIMARY KEY,
     name VARCHAR(50),
@@ -26,7 +38,11 @@ CREATE TABLE HOSTEL_REPRESENTATIVE (
     phone VARCHAR(15),
     warden VARCHAR(50)
 );
+```
 
+### BILLS
+
+```sql
 CREATE TABLE BILLS (
     bill_id INT PRIMARY KEY,
     date DATE,
@@ -35,7 +51,10 @@ CREATE TABLE BILLS (
     rep_id INT,
     FOREIGN KEY (rep_id) REFERENCES HOSTEL_REPRESENTATIVE(rep_id)
 );
+```
+### TRANSACTION
 
+```sql
 CREATE TABLE TRANSACTION (
     trans_id INT PRIMARY KEY,
     amount INT,
@@ -44,3 +63,4 @@ CREATE TABLE TRANSACTION (
     bill_id INT,
     FOREIGN KEY (bill_id) REFERENCES BILLS(bill_id)
 );
+```
