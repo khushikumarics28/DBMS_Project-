@@ -1,77 +1,46 @@
-<h1 align="center">SMART HOSTEL & MESS MANAGEMENT DATABASE</h1>
+CREATE DATABASE hostel_db;
+USE hostel_db;
 
-## 1. Hostel Representative
-
-```sql
-CREATE TABLE hostel_representative (
-    rep_id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(100),
-    phone VARCHAR(15),
-    email VARCHAR(100),
-    warden VARCHAR(100)
-);
-```
-
----
-
-##  2. Room
-
-```sql
-CREATE TABLE room (
-    room_id INT PRIMARY KEY AUTO_INCREMENT,
-    block VARCHAR(50),
+CREATE TABLE ROOM (
+    room_no INT PRIMARY KEY,
+    room_type VARCHAR(20),
     capacity INT,
-    room_type VARCHAR(50),
-    floor INT
+    floor INT,
+    block VARCHAR(10)
 );
-```
 
----
-##  3. Student
-
-```sql
-CREATE TABLE student (
-    student_id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(100),
-    email VARCHAR(100),
+CREATE TABLE STUDENTS (
+    student_id INT PRIMARY KEY,
+    name VARCHAR(50),
+    email_id VARCHAR(50),
     phone VARCHAR(15),
     admit_date DATE,
-    room_id INT,
-    
-    FOREIGN KEY (room_id) REFERENCES room(room_id)
+    room_no INT,
+    FOREIGN KEY (room_no) REFERENCES ROOM(room_no)
 );
-```
 
----
+CREATE TABLE HOSTEL_REPRESENTATIVE (
+    rep_id INT PRIMARY KEY,
+    name VARCHAR(50),
+    email_id VARCHAR(50),
+    phone VARCHAR(15),
+    warden VARCHAR(50)
+);
 
-##  4. Bill
-
-```sql
-CREATE TABLE bill (
-    bill_id INT PRIMARY KEY AUTO_INCREMENT,
-    month VARCHAR(20),
-    amount DECIMAL(10,2),
+CREATE TABLE BILLS (
+    bill_id INT PRIMARY KEY,
     date DATE,
+    amount INT,
     duration INT,
     rep_id INT,
-    student_id INT,
-    
-    FOREIGN KEY (rep_id) REFERENCES hostel_representative(rep_id),
-    FOREIGN KEY (student_id) REFERENCES student(student_id)
+    FOREIGN KEY (rep_id) REFERENCES HOSTEL_REPRESENTATIVE(rep_id)
 );
-``` 
 
-##  5. Transaction
-
-```sql
-CREATE TABLE transaction (
-    trans_id INT PRIMARY KEY AUTO_INCREMENT,
-    amount DECIMAL(10,2),
-    mode VARCHAR(50),
+CREATE TABLE TRANSACTION (
+    trans_id INT PRIMARY KEY,
+    amount INT,
+    payment_method VARCHAR(20),
     date DATE,
-    reference_no VARCHAR(100),
     bill_id INT,
-    
-    FOREIGN KEY (bill_id) REFERENCES bill(bill_id)
+    FOREIGN KEY (bill_id) REFERENCES BILLS(bill_id)
 );
-```
