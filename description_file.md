@@ -1,10 +1,10 @@
-# SMART HOSTEL & MESS MANAGEMENT DATABASE  
-## With Billing Transactions
+# SMART HOSTEL MANAGEMENT DATABASE  
+## Transactions and Billing System  
 
 ---
 
 ## 📌 Project Title
-**Smart Hostel & Mess Management Database with Billing Transactions**
+**Smart Hostel Management Database (Transactions and Billing System)**
 
 ---
 
@@ -17,13 +17,19 @@
 ---
 
 ## 📝 Description
-A Smart Hostel and Mess Management Database manages hostel, student, and mess details, and records bills and payment transactions to automate administration and ensure accurate billing.
+The Smart Hostel Management Database is designed to manage hostel operations efficiently by storing and organizing data related to students, rooms, billing, and transactions.  
+It focuses on handling billing and payment processes in a structured and automated way.
 
 ---
 
 ## 📄 Abstract
-The Smart Hostel and Mess Management Database aims to provide an organized and computerized system to manage hostel and mess operations. It stores information about hostels, students, mess services, billing, and transactions.  
-Students are assigned to hostels and use mess services. Bills are generated for students and payments are recorded through transactions. This system reduces manual work, avoids data redundancy, and ensures accurate billing and record-keeping.
+This project presents a database system for managing hostel activities with a focus on transactions and billing.  
+The system stores information about students, room allocation, hostel representatives, bills, and payment transactions.  
+
+Students are allocated rooms, and hostel representatives manage rooms and generate bills.  
+Each bill is associated with a student and is paid through transactions.  
+
+The system reduces manual work, improves accuracy, and ensures efficient tracking of payments and records.
 
 ---
 
@@ -43,73 +49,81 @@ Students are assigned to hostels and use mess services. Bills are generated for 
 
 ## 🧩 Entities and Attributes
 
-### 1️⃣ HOSTEL
-- Hostel_ID (Primary Key)  
-- Name  
-- Location  
-- Total_Rooms  
-- Warden  
-
-### 2️⃣ MESS
-- Mess_ID (Primary Key)  
-- Name  
-- Type  
-- Charge  
-- Timing  
-
-### 3️⃣ STUDENT
+### 1️⃣ STUDENTS
 - Student_ID (Primary Key)  
 - Name  
-- Roll_No  
+- Email_ID  
 - Phone  
+- Admit_Date  
 
-### 4️⃣ BILL
+### 2️⃣ ROOM
+- Room_No (Primary Key)  
+- Room_Type  
+- Capacity  
+- Floor  
+- Block  
+
+### 3️⃣ HOSTEL_REPRESENTATIVE
+- Rep_ID (Primary Key)  
+- Name  
+- Email_ID  
+- Phone  
+- Warden  
+
+### 4️⃣ BILLS
 - Bill_ID (Primary Key)  
 - Date  
 - Amount  
-- Status  
+- Duration  
 
 ### 5️⃣ TRANSACTION
 - Trans_ID (Primary Key)  
 - Date  
-- Mode  
 - Amount  
+- PaymentMethod  
 
 ---
 
 ## 🔗 Relationships and Cardinality
 
-### 1️⃣ HOSTEL accommodates STUDENT
-- Relationship: accommodates  
+### 1️⃣ STUDENTS allocated to ROOM
+- Relationship: ALLOCATES  
 - Cardinality:  
-  - One HOSTEL → Many STUDENTS (1 : N)  
-  - One STUDENT → One HOSTEL  
+  - Many STUDENTS → One ROOM (M : 1)  
+  - One ROOM → Many STUDENTS  
 
-### 2️⃣ STUDENT uses MESS
-- Relationship: uses  
+### 2️⃣ HOSTEL_REPRESENTATIVE manages ROOM
+- Relationship: MANAGES  
 - Cardinality:  
-  - One MESS → Many STUDENTS (1 : N)  
-  - One STUDENT → One MESS  
+  - One REPRESENTATIVE → Many ROOMS (1 : M)  
 
-### 3️⃣ STUDENT generates BILL
-- Relationship: generates  
+### 3️⃣ HOSTEL_REPRESENTATIVE generates BILLS
+- Relationship: GENERATES  
 - Cardinality:  
-  - One STUDENT → Many BILLS (1 : N)  
-  - One BILL → One STUDENT  
+  - One REPRESENTATIVE → Many BILLS (1 : M)  
 
-### 4️⃣ BILL paid through TRANSACTION
-- Relationship: paid through  
+### 4️⃣ STUDENTS receive BILLS
+- Relationship: RECEIVE  
 - Cardinality:  
-  - One BILL → Many TRANSACTIONS (1 : N)  
-  - One TRANSACTION → One BILL  
+  - One STUDENT → Many BILLS (1 : M)  
+
+### 5️⃣ BILLS paid through TRANSACTION
+- Relationship: PAID_THROUGH  
+- Cardinality:  
+  - One BILL → Many TRANSACTIONS (1 : M)  
 
 ---
 
 ## 🗂️ Tables Created in Database
-1. HOSTEL(Hostel_ID, Name, Location, Total_Rooms, Warden)  
-2. MESS(Mess_ID, Name, Type, Charge, Timing)  
-3. STUDENT(Student_ID, Name, Roll_No, Phone, Hostel_ID, Mess_ID)  
-4. BILL(Bill_ID, Date, Amount, Status, Student_ID)  
-5. TRANSACTION(Trans_ID, Date, Mode, Amount, Bill_ID)  
+
+1. STUDENTS(Student_ID, Name, Email_ID, Phone, Admit_Date, Room_No)  
+
+2. ROOM(Room_No, Room_Type, Capacity, Floor, Block)  
+
+3. HOSTEL_REPRESENTATIVE(Rep_ID, Name, Email_ID, Phone, Warden)  
+
+4. BILLS(Bill_ID, Date, Amount, Duration, Student_ID, Rep_ID)  
+
+5. TRANSACTION(Trans_ID, Date, Amount, PaymentMethod, Bill_ID)  
 
 ---
